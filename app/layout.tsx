@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ChatFab } from "@/components/chatbot/ChatFab";
 import "./globals.css";
 
 const notoSerifJp = Noto_Serif_JP({
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Header />
         <div className="pt-16">{children}</div>
         <Footer />
+        <ChatFab />
       </body>
     </html>
   );
