@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MENUS } from "@/lib/data/menus";
 
@@ -7,10 +8,10 @@ export const metadata: Metadata = {
   description: "Salon Lumière Kawagoe のメニュー一覧",
 };
 
-const categories: Array<{ key: "Cut" | "Color" | "Treatment"; label: string }> = [
-  { key: "Cut", label: "Cut" },
-  { key: "Color", label: "Color" },
-  { key: "Treatment", label: "Treatment" },
+const categories: Array<{ key: "Cut" | "Color" | "Treatment"; label: string; image: string }> = [
+  { key: "Cut", label: "Cut", image: "/images/menu/menu-cut.png" },
+  { key: "Color", label: "Color", image: "/images/menu/menu-color.png" },
+  { key: "Treatment", label: "Treatment", image: "/images/menu/menu-treatment.png" },
 ];
 
 export default function MenuPage() {
@@ -20,6 +21,15 @@ export default function MenuPage() {
         <SectionHeading title="メニュー" sub="Menu" />
         {categories.map((cat) => (
           <div key={cat.key} className="mb-12">
+            <div className="relative aspect-[16/9] mb-6 rounded-lg overflow-hidden">
+              <Image
+                src={cat.image}
+                alt={cat.label}
+                fill
+                sizes="(max-width: 768px) 100vw, 896px"
+                className="object-cover"
+              />
+            </div>
             <h3 className="font-serif text-2xl text-brand-primary mb-6 border-b border-brand-accent pb-2">
               {cat.label}
             </h3>

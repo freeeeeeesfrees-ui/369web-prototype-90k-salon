@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Stylist } from "@/lib/types";
 
 type Props = { stylist: Stylist };
@@ -5,8 +6,14 @@ type Props = { stylist: Stylist };
 export function StylistCard({ stylist }: Props) {
   return (
     <article className="grid md:grid-cols-[200px_1fr] gap-6 bg-white border border-surface-border rounded-lg p-6">
-      <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-brand-primary mx-auto flex items-center justify-center text-white font-serif text-5xl">
-        {stylist.name.charAt(0)}
+      <div className="relative w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden">
+        <Image
+          src={`/images/stylists/stylist-${stylist.id}.png`}
+          alt={stylist.name}
+          fill
+          sizes="(max-width: 768px) 160px, 192px"
+          className="object-cover"
+        />
       </div>
       <div>
         <h3 className="font-serif text-2xl text-brand-primary">{stylist.name}</h3>

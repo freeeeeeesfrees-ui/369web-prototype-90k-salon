@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
@@ -22,6 +23,17 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <SectionHeading title="サロン情報" sub="About / Access" />
 
+        <div className="relative aspect-[16/9] mb-12 rounded-lg overflow-hidden">
+          <Image
+            src="/images/about/about-hero.png"
+            alt="Salon Lumière Kawagoe 外観"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 896px"
+            className="object-cover"
+          />
+        </div>
+
         <section className="mb-16">
           <h2 className="font-serif text-2xl text-brand-primary mb-4">Salon Lumière のはじまり</h2>
           <p className="text-ink-main leading-relaxed whitespace-pre-line">
@@ -29,6 +41,27 @@ export default function AboutPage() {
 
 経験豊富なスタイリストが、お客様一人ひとりのライフスタイルに合わせたスタイルをご提案。完全個室の落ち着いた空間で、特別な時間をお過ごしください。`}
           </p>
+        </section>
+
+        <section className="mb-16 grid md:grid-cols-2 gap-4">
+          <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
+            <Image
+              src="/images/about/about-interior-1.png"
+              alt="完全個室の施術スペース"
+              fill
+              sizes="(max-width: 768px) 100vw, 440px"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
+            <Image
+              src="/images/about/about-interior-2.png"
+              alt="受付・待合スペース"
+              fill
+              sizes="(max-width: 768px) 100vw, 440px"
+              className="object-cover"
+            />
+          </div>
         </section>
 
         <section className="mb-16">

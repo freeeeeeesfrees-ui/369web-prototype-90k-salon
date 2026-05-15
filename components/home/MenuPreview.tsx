@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 
 const previewItems = [
-  { name: "カット", price: "¥5,500〜" },
-  { name: "カラー", price: "¥7,700〜" },
-  { name: "トリートメント", price: "¥3,300〜" },
+  { name: "カット", price: "¥5,500〜", image: "/images/menu/menu-cut.png" },
+  { name: "カラー", price: "¥7,700〜", image: "/images/menu/menu-color.png" },
+  { name: "トリートメント", price: "¥3,300〜", image: "/images/menu/menu-treatment.png" },
 ];
 
 export function MenuPreview() {
@@ -16,10 +17,21 @@ export function MenuPreview() {
           {previewItems.map((item) => (
             <div
               key={item.name}
-              className="border border-surface-border rounded-lg p-8 text-center hover:border-brand-accent transition-colors"
+              className="border border-surface-border rounded-lg overflow-hidden hover:border-brand-accent transition-colors bg-white"
             >
-              <h3 className="font-serif text-2xl text-brand-primary mb-2">{item.name}</h3>
-              <p className="text-brand-accent-dark text-xl">{item.price}</p>
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="font-serif text-2xl text-brand-primary mb-2">{item.name}</h3>
+                <p className="text-brand-accent-dark text-xl">{item.price}</p>
+              </div>
             </div>
           ))}
         </div>

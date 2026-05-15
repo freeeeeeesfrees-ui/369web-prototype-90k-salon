@@ -22,10 +22,24 @@ const notoSansJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://369web-prototype-90k-salon.vercel.app"),
   title: "Salon Lumière Kawagoe（デモ）",
   description: "369WEB 9万円プラン プロトタイプサイト",
   robots: { index: false, follow: false },
   viewport: { width: "device-width", initialScale: 1 },
+  openGraph: {
+    title: "Salon Lumière Kawagoe（デモ）",
+    description: "369WEB 9万円プラン プロトタイプサイト",
+    type: "website",
+    images: [
+      {
+        url: "/images/og/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Salon Lumière Kawagoe",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
