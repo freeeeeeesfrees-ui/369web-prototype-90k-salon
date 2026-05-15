@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Serif_JP, Noto_Sans_JP } from "next/font/google";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const notoSerifJp = Noto_Serif_JP({
@@ -21,14 +23,8 @@ const notoSansJp = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "Salon Lumière Kawagoe（デモ）",
   description: "369WEB 9万円プラン プロトタイプサイト",
-  robots: {
-    index: false,
-    follow: false,
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+  robots: { index: false, follow: false },
+  viewport: { width: "device-width", initialScale: 1 },
 };
 
 export default function RootLayout({
@@ -39,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSerifJp.variable} ${notoSansJp.variable}`}>
       <body className="font-sans bg-surface text-ink-main antialiased">
-        {children}
+        <Header />
+        <div className="pt-16">{children}</div>
+        <Footer />
       </body>
     </html>
   );
